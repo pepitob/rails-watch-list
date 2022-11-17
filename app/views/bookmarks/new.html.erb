@@ -1,0 +1,6 @@
+<h4>Add a movie</h4>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment, placeholder: "Your thoughts about this movie" %>
+  <%= f.association :movie %>
+  <%= f.button :submit %>
+<% end %>
