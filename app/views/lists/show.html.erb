@@ -9,11 +9,9 @@
   </div>
 </div>
 
-<h1><%= @list.name %></h1>
-
 <% @list.bookmarks.each do |bookmark| %>
   <div class="card-product">
-    <img src=<%= bookmark.movie.poster_url %> alt="bookmark.movie.title">
+    <img src=<%= bookmark.movie.poster_url %> alt="bookmark.movie.title" class="text-center">
     <div class="card-product-infos">
       <h2><%= bookmark.movie.title %></h2>
       <p><%= bookmark.movie.rating.round(2) %> ⭐</p>
@@ -24,7 +22,7 @@
   </div>
 <% end %>
 
-
-<%= link_to "Add movie", new_list_bookmark_path(@list) %>
-
-<%= link_to "Go back", lists_path %>
+<div class="text-center">
+  <%= link_to "Add movie", new_list_bookmark_path(@list), :class => "btn btn-primary" %>
+  <%= link_to "Go back", lists_path, :class => "btn btn-primary" %>
+</div>
