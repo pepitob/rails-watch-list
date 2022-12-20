@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://s3-us-west-2.amazonaws.com/prd-rteditorial/wp-content/uploads/2018/03/13153742/RT_300EssentialMovies_700X250.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>);">
   <div class="container">
     <div class="flex-item align-center align-middle">
       <h1><strong><%= @list.name %></strong></h1>
@@ -22,7 +22,7 @@
   </div>
 <% end %>
 
-<div class="text-center">
+<div class="text-center m-3">
   <%= link_to "Add movie", new_list_bookmark_path(@list), :class => "btn btn-primary" %>
   <%= link_to "Go back", lists_path, :class => "btn btn-primary" %>
 </div>
