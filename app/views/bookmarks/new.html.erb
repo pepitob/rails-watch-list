@@ -1,5 +1,5 @@
 <h4>Add a movie</h4>
-<%= simple_form_for [@list, @bookmark] do |f| %>
+<%= simple_form_for [@list, @bookmark], data: { controller: "movie-autocomplete", movie_autocomplete_target: "form" } do |f| %>
   <%= f.input :comment, placeholder: "Your thoughts about this movie" %>
   <%= f.association :movie %>
   <%= f.button :submit %>
