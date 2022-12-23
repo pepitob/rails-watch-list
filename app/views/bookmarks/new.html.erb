@@ -2,8 +2,11 @@
 <%= simple_form_for [@list, @bookmark], data: { controller: "movie-autocomplete", movie_autocomplete_target: "form" } do |f| %>
   <%= f.input :comment, placeholder: "Your thoughts about this movie" %>
   <%# <%= f.association :movie %>
-  <%= f.input :movie, input_html: { data: { movie_autocomplete_target: "input", action: "input->movie-autocomplete#search" }, id: "autocomplete-field"} %>
+  <%= f.input :movie, input_html: { data: { movie_autocomplete_target: "input", action: "input->movie-autocomplete#search" }, id: "autocomplete-field", value: "" } %>
   <ul id="autocomplete-options" data-movie-autocomplete-target="options" data-action="click->movie-autocomplete#select">
   </ul>
+  <% if flash[:alert] %>
+    <div class="alert alert-danger"><%= flash[:alert] %></div>
+  <% end %>
   <%= f.button :submit %>
 <% end %>
