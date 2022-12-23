@@ -1,5 +1,7 @@
 const path    = require("path")
 const webpack = require("webpack")
+const Dotenv = require('dotenv-webpack');
+
 
 module.exports = {
   mode: "production",
@@ -13,8 +15,9 @@ module.exports = {
     path: path.resolve(__dirname, "app/assets/builds"),
   },
   plugins: [
+    new Dotenv(),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
-    })
-  ]
+    }),
+  ],
 }
