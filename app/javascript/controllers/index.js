@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import MovieAutocompleteController from "./movie_autocomplete_controller"
 application.register("movie-autocomplete", MovieAutocompleteController)
+
+import ShowOverviewController from "./show_overview_controller"
+application.register("show-overview", ShowOverviewController)

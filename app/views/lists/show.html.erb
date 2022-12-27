@@ -10,12 +10,12 @@
 </div>
 
 <% @list.bookmarks.each do |bookmark| %>
-  <div class="card-product">
+  <div class="card-product" data-controller="show-overview" data-show-overview-target="card">
     <img src=<%= bookmark.movie.poster_url %> alt="bookmark.movie.title" class="text-center">
     <div class="card-product-infos">
       <h2><%= bookmark.movie.title %></h2>
       <p><%= bookmark.movie.rating.round(2) %> ⭐</p>
-      <p><%= bookmark.movie.overview %></p>
+      <p data-action="click->show-overview#show" data-show-overview-target="text"><%= bookmark.movie.overview %></p>
       <hr>
       <h3>Comment</h3>
       <p><%= bookmark.comment %></p>
