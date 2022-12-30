@@ -21,3 +21,7 @@
 #autocomplete-options li:hover {
   background-color: #f5f5f5;
 }
+
+#autocomplete-options:empty {
+  display: none;
+}
