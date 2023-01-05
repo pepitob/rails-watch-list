@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["form", "input", "options"]
 
   connect() {
-    console.log("movie autocomplete controller connected")
+    this.optionsTarget.innerHTML = "";
   }
 
   search(event) {
@@ -25,6 +25,12 @@ export default class extends Controller {
 
   select(event) {
     this.optionsTarget.innerHTML = "";
-    this.inputTarget.value = event.target.innerHTML
+    this.inputTarget.value = event.target.innerHTML;
+
+    if (this.optionsTarget.children.length === 0) {
+      this.optionsTarget.classList.add('empty');
+    } else {
+      this.optionsTarget.classList.remove('empty');
+    }
   }
 }
