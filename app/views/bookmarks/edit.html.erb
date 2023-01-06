@@ -1,0 +1,13 @@
+<h1 class="m-3">Edit comment</h1>
+
+<div class="card m-3 rounded-3 shadow-sm" style="width: 40rem;">
+  <div class="m-3">
+    <%= simple_form_for [@bookmark] do |f| %>
+      <%= f.input :comment, placeholder: "Your thoughts about this movie" %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger"><%= flash[:alert] %></div>
+      <% end %>
+      <%= f.button :submit, :class => "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -19,6 +19,20 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def edit
+    @bookmark = Bookmark.find(params[:id])
+  end
+
+  def update
+    @bookmark = Bookmark.find(params[:id])
+    @list = @bookmark.list
+    if @bookmark.update(bookmark_params_edit)
+      redirect_to list_path(@list)
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
@@ -43,5 +57,9 @@ class BookmarksController < ApplicationController
     end
     params[:bookmark][:movie_id] = @movie.id
     params.require(:bookmark).permit(:comment, :movie_id)
+  end
+
+  def bookmark_params_edit
+    params.require(:bookmark).permit(:comment)
   end
 end
